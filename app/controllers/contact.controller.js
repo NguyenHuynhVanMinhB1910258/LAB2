@@ -91,7 +91,9 @@ exports.create = async (req, res, next) => {
         return next(new ApiError(400,"Name can not be empty"));
     }
     try {
+        // return next(new ApiError(200,"Name can not be empty"));
         const contactService = new ContactService(MongoDB.client);
+        // const document = await contactService.create(req.body);
         const document = await contactService.create(req.body);
         return res.send(document);
     }catch (error) {
